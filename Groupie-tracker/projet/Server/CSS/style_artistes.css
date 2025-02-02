@@ -1,0 +1,126 @@
+body {
+    margin: 0;
+    background-color: #e7e7e7;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    height: 100%;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(169, 169, 169);
+    display: flex;
+    align-items: center;
+    padding: 0 20px; 
+    z-index: 1000;
+    height: 63px;
+}
+
+.navbar .logo {
+    position: absolute;
+    margin-left: 93px;
+    display: inline-block; 
+}
+
+.navbar .logo img {
+    width: 61px;
+    height: 61px;
+}
+
+.bouton-nav {
+    display: flex;
+    gap: 25px;
+    margin-left: 100%;
+}
+
+.bouton-nav a {
+    text-decoration: none;
+    color: rgb(98, 98, 98);
+    font-weight: bold;
+    transition: color 0.4s;
+    font-size: 21px;
+}
+
+.bouton-nav a:hover {
+    color: #ffffff;
+}
+
+.bouton-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+.filtre {
+    position: absolute;
+    right: 12%;
+}
+
+.filtre input {
+    padding: 7px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 250px;
+}
+
+.container {
+    width: 88%;
+    background-color: rgba(238, 238, 238, 0.8);
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 63px auto 0 auto;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.artist-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.artist-item h3 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.Logo-Nom {
+    position: absolute;
+    margin-left: 40%;
+    margin-top: 6px;
+}
+
+.suggestions {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    background-color: white;
+    width: calc(100% - 20px); /* Adjust width as needed */
+    z-index: 1000;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+}

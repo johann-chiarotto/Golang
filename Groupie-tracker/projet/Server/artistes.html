@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style_artistes.css">
+    <link rel="icon" href="./CSS/Spooteezer_logo.png">
+    <title>Spooteezer</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/" ><img src="CSS/Spooteezer_logo.png" alt="Logo" width="60" height="60"></a>
+        </div>
+        <ul>
+            <div class="bouton-nav">
+                <a href="/">Accueil</a>
+                <a href="/Artistes">Artistes</a>
+            </div>
+        </ul>
+        <div class="Logo-Nom">
+            <img src="CSS/Spooteezer.png" alt="Logo" width="250" height="55">
+        </div>
+        <div class="filtre">
+            <input type="text" id="searchBar" placeholder="Rechercher un artiste..." oninput="filterArtists()">
+            <div id="suggestions" class="suggestions"></div>
+        </div>
+    </nav>
+    <script>
+const artists = ["Queen","SOJA","Pink Floyd","Scorpions","XXXTentacion","Mac Miller","Joyner Lucas","Kendrick Lamar","ACDC","Pearl Jam","Katy Perry","Rihanna","Genesis","Phil Collins","Led Zeppelin","The Jimi Hendrix Experience","Bee Gees","Deep Purple","Aerosmith","Dire Straits","Mamonas Assassinas","Thirty Seconds to Mars","Imagine Dragons","Juice Wrld","Logic","Alec Benjamin","Bobby McFerrins","R3HAB","Post Malone","Travis Scott","J. Cole","Nickelback","Mobb Deep","Guns N' Roses","NWA","U2","Arctic Monkeys","Fall Out Boy","Gorillaz","Eagles","Linkin Park","Red Hot Chili Peppers","Eminem","Green Day","Metallica","Coldplay","Maroon 5","Twenty One Pilots","The Rolling Stones","Muse","Foo Fighters","The Chainsmokers"]; // Liste des artistes
+
+function filterArtists() {
+    const input = document.getElementById('searchBar').value.toLowerCase();
+    const suggestions = document.getElementById('suggestions');
+    suggestions.innerHTML = ''; // Clear previous suggestions
+
+    if (input) {
+        const filteredArtists = artists.filter(artist => artist.toLowerCase().includes(input));
+        
+        filteredArtists.forEach(artist => {
+            const suggestionItem = document.createElement('div');
+            suggestionItem.className = 'suggestion-item';
+            suggestionItem.textContent = artist;
+            suggestionItem.onclick = () => {
+                document.getElementById('searchBar').value = artist;
+                suggestions.innerHTML = ''; // Clear suggestions after selection
+                filterArtists(); // Optionally, re-filter artists based on the selected suggestion
+            };
+            suggestions.appendChild(suggestionItem);
+        });
+    }
+
+    const artistItems = document.querySelectorAll('.artist-item'); // Assurez-vous que vos éléments d'artistes ont cette classe
+    artistItems.forEach((item) => {
+        const artistName = item.querySelector("h3").textContent.toLowerCase();
+        if (artistName.includes(input)) {
+            item.style.display = "block";
+        } else {
+            item.style.display = "none";
+        }
+    });
+}
+
+    </script>
+    <div class="container">
+        <div class="grid">
+            {{range .Artistes}}
+            <div class="artist-item">
+                <a href="http://localhost:8080/Artiste?id={{.ID}}">
+                    <img src="{{.Image}}" alt="{{.Name}}">
+                </a>
+                <h3>{{.Name}}</h3>
+            </div>
+            {{end}}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style_homepage.css">
+    <link rel="icon" href="./CSS/Spooteezer_logo.png">
+    <title>Spooteezer</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/" ><img src="CSS/Spooteezer_logo.png" alt="Logo" width="60" height="60"></a>
+        </div>
+        <ul>
+            <div class="bouton-nav">
+                <a href="/">Accueil</a>
+                <a href="/Artistes">Artistes</a>
+            </div>
+        </ul>
+        <div class="Logo-Nom">
+            <img src="CSS/Spooteezer.png" alt="Logo" width="250" height="55">
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Recommandations</h2>
+        <div class="grid">
+            {{range .Recommandation}}
+            <div class="artist-item">
+                <a href="http://localhost:8080/Artiste?id={{.ID}}">
+                    <img src="{{.Image}}" alt="{{.Name}}">
+                </a>
+                <h3>{{.Name}}</h3>
+            </div>
+            {{end}}
+        </div>
+    </div>
+    
+    <div class="container">
+        {{range .Genres}}
+        <div class="genre">
+            <h2>{{.Name}}</h2>
+            <div class="artistsContainer">
+                {{range .ListeArtistes}}
+                    <div class="artist-item">
+                        <a href="http://localhost:8080/Artiste?id={{.ID}}">
+                            <img src="{{.Image}}" alt="{{.Name}}">
+                        </a>
+                        <h3>{{.Name}}</h3>
+                    </div>
+                {{end}}
+            </div>
+        </div>
+        {{end}}
+    </div>
+    
+</body>
+</html>

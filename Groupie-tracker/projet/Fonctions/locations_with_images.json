@@ -1,0 +1,243 @@
+{
+    "usa": {  
+        "id": "usa",
+        "image": "https://www.atlanticcouncil.org/wp-content/uploads/2010/11/usflag-460_1118303c.jpg"
+    },
+    "new_zealand": {
+        "id": "new zealand",
+        "image": "https://lepetitjournal.com/_next/image?url=https%3A%2F%2Fbackoffice.lepetitjournal.com%2Fsites%2Fdefault%2Ffiles%2F2018-08%2FParlement%2520Wellington%2520.jpg&w=750&q=75"
+    },
+
+    "japan": {
+        "id": "japan",
+        "image": "https://www.celebritycruises.com/blog/content/uploads/2021/03/what-is-japan-known-for-mt-fuji-hero-1920x890.jpg"
+    },
+    
+    "new_caledonia": {
+        "id": "new caledonia",
+        "image": "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/75000/75526-New-Caledonia.jpg"
+    },
+
+    "french_polynesia": {
+        "id": "french polynesia",
+        "image": "https://www.polynesiaparadise.com/wp-content/uploads/french-polynesia.jpeg"
+    },
+    
+    "mexico": {
+        "id": "mexico",
+        "image": "https://mexique-decouverte.com/wp-content/uploads/2019/09/ville-de-mexico.jpg"
+    }, 
+
+    "switzerland": {
+        "id": "switzerland",
+        "image": "https://www.alphatrad.co.uk/sites/alphatrad.co.uk/files/styles/news_image/public/images/articles/what-are-the-languages-spoken-in-switzerland.jpg?itok=7TptHWyA"
+    },
+
+    "uk": {
+        "id": "uk",
+        "image": "https://t4.ftcdn.net/jpg/01/08/47/29/360_F_108472954_A3Y42CvYf3GLzKKb5CJjVxuoal8TLE9M.jpg"
+    },
+
+    "france": {
+        "id": "france",
+        "image": "https://www.campusfrance.org/sites/default/files/medias/images/2024-05/France_eiffel.jpg"
+    },
+
+    "slovakia": {
+        "id": "slovakia",
+        "image": "https://lp-cms-production.imgix.net/2024-06/shutterstock454699801.jpg?fit=crop&w=3840&auto=format&q=75"
+    },
+
+    "hungary": {
+        "id": "hungary",
+        "image": "https://static1.evcdn.net/images/reduction/354854_w-3840_h-2160_q-70_m-crop.jpg"
+    },
+
+    
+    "belarus": {
+        "id": "belarus",
+        "image": "https://www.globalization-partners.com/_next/image/?url=https%3A%2F%2Fgpcmsdev.wpengine.com%2Fwp-content%2Fuploads%2F2023%2F09%2Fglobalpedia-hero-belarus-1.jpg&w=3840&q=85"
+    },
+
+    "australia": {
+        "id": "australia",
+        "image": "https://ichef.bbci.co.uk/ace/standard/976/cpsprodpb/10A3C/production/_129365186_gettyimages-103455489.jpg"
+    },
+
+    
+    "indonesia": {
+        "id": "indonesia",
+        "image": "https://cdn.shopify.com/s/files/1/0104/2897/3107/articles/01-Indonesia.jpg?v=1691678048"
+    },
+
+    "argentina": {
+        "id": "argentina",
+        "image": "https://fr.shiftcities.org/sites/default/files/styles/og_image/public/2021-12/argentina%20%284%29%20small.png?itok=_oDpZyN3"
+    },
+
+    "brazil": {
+        "id": "brazil",
+        "image": "https://www.tmf-group.com/globalassets/images/news-and-insights/articles--pr/944x540-country-landscape/christ-sugar-loaf-mountain-brazil.jpg"
+    },
+
+    "spain": {
+        "id": "spain",
+        "image": "https://holbornassets.com/wp-content/uploads/2021/04/spain-city-view.png"
+    },
+
+    "colombia": {
+        "id": "colombia",
+        "image": "https://www.outlooktravelmag.com/media/colombia-1-1587123198.profileImage.2x-jpg-webp.webp"
+    },
+
+    "portugal": {
+        "id": "portugal",
+        "image": "https://img-4.linternaute.com/o7wmqKffXpCl3CSTB2w5bvphWTQ=/1080x/smart/bc8297cd38f644ad9be3acfb4686a11a/ccmcms-linternaute/11011328.jpg"
+    },
+
+    "sweden": {
+        "id": "sweden",
+        "image": "https://economic-research.bnpparibas.com/Handlers/DisplayImage.ashx?type=Chapter&id=40438"
+    },
+
+    
+    "belgium": {
+        "id": "belgium",
+        "image": "https://www.pocketwanderings.com/wp-content/uploads/2022/06/Dinant-Belgium.jpg"
+    },
+
+    "denmark": {
+        "id": "denmark",
+        "image": "https://media.newyorker.com/photos/5d56c344bf32fb0008158837/16:9/w_2560,h_1439,c_limit/Borowitz--Denmark.jpg"
+    },       
+
+    "germany": {
+        "id": "germany",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8K3Nm_w1JY5ecwjwdgZ6urhviq_YQbl7-Nw&s"
+    },    
+
+    "qatar": {
+        "id": "qatar",
+        "image": "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/555000/555257-qatar.jpg"
+    },    
+
+    "india": {
+        "id": "india",
+        "image": "https://static7.depositphotos.com/1066611/793/i/450/depositphotos_7932088-stock-photo-taj-mahal-in-india.jpg"
+    },    
+
+    "united_arab_emirates": {
+        "id": "united arab emirates",
+        "image": "https://digital.ihg.com/is/image/ihg/ihg-explore-uae-1600x560-2?ts=1695682128529&dpr=off"
+    },    
+
+    "austria": {
+        "id": "austria",
+        "image": "https://www.thetimes.com/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2Fa9975d6b-cdcd-4bfc-b07b-d1e3ecc79c42.jpg?crop=1564%2C880%2C318%2C0&resize=1200"
+    },    
+
+    "czechia": {
+        "id": "czechia",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZjNG8FyBRTDFiGjGoyVms2jTK30crf9tyPQ&s"
+    },    
+
+    "netherlands": {
+        "id": "netherlands",
+        "image": "https://media.timeout.com/images/106034909/750/422/image.jpg"
+    },  
+
+    "romania": {
+        "id": "romania",
+        "image": "https://images.unsplash.com/photo-1534371020656-6b85825f2b1a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8JTIzcm9tYW5pYXxlbnwwfHwwfHx8MA%3D%3D"
+    },  
+
+    "finland": {
+        "id": "finland",
+        "image": "https://media.architecturaldigest.com/photos/58f62c148bfbf566da78abef/16:9/w_2560%2Cc_limit/Finland.jpg"
+    },  
+
+    "saudi_arabia": {
+        "id": "saudi arabia",
+        "image": "https://www.elandcables.com/media/dppb0w0u/v637559122992570001/ai-in-saudi-arabia.jpg"
+    },  
+
+    "canada": {
+        "id": "canada",
+        "image": "https://fac.img.pmdstatic.net/fit/~1~fac~2023~04~13~c8804aa4-f947-4567-8ee5-00f08b15cb6b.jpeg/1200x900/quality/80/crop-from/center/focus-point/632%2C423/canada-a-la-decouverte-de-montreal-premiere-ville-du-quebec.jpeg"
+    },  
+
+    "ireland": {
+        "id": "ireland",
+        "image": "https://media.istockphoto.com/id/490845928/fr/photo/vue-du-pont-mellows-%C3%A0-dublin-en-irlande.jpg?s=612x612&w=0&k=20&c=_YZIJdDeeGvKnKgUq6CAvwLy1wyG1FRERujntyjKHnA="
+    },      
+
+    "italy": {
+        "id": "italy",
+        "image": "https://www.state.gov/wp-content/uploads/2023/07/shutterstock_433413835v2.jpg"
+    },     
+
+    "poland": {
+        "id": "poland",
+        "image": "https://statemag.state.gov/wp-content/uploads/2023/03/0423pom-1-scaled.jpg"
+    },    
+
+    "norway": {
+        "id": "norway",
+        "image": "https://i.natgeofe.com/k/679e983c-4461-4398-bb6d-9b508fe3e4de/norway-northern-lights.jpg"
+    },    
+
+    "china": {
+        "id": "china",
+        "image": "https://cdn.britannica.com/89/179589-138-3EE27C94/Overview-Great-Wall-of-China.jpg?w=800&h=450&c=crop"
+    },   
+
+    "chile": {
+        "id": "chile",
+        "image": "https://www.tourisme-chili.com/wp-content/uploads/santiago-chili-1.jpg"
+    },   
+
+    "philippines": {
+        "id": "philippines",
+        "image": "https://i.ytimg.com/vi/5-kmuzGDtdY/maxresdefault.jpg"
+    },   
+
+
+    "peru": {
+        "id": "peru",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaVjdR2NNNiXSAEGQqYs-WgS7tLV3hdknCeg&s"
+    },   
+
+    "greece": {
+        "id": "greece",
+        "image": "https://internationalliving.com/_next/image/?url=https%3A%2F%2Fimages.ctfassets.net%2Fwv75stsetqy3%2F18jOEJrhKM7WA81nkCKZV8%2F6f70df258ed1233d5c3a8e3f01298b06%2FGreece.jpg%3Fq%3D60%26fit%3Dfill%26fm%3Dwebp&w=3840&q=60"
+    },   
+
+    "thailand": {
+        "id": "thailand",
+        "image": "https://ims.ev.mu/small_Cover_temple_Thailande_16a46b4603/small_Cover_temple_Thailande_16a46b4603.jpg"
+    },     
+    
+    
+    "south_korea": {
+        "id": "south korea",
+        "image": "https://i.natgeofe.com/n/0f550dab-11fc-460e-a39b-030b6e5cbf06/practicalguide.jpg"
+    },    
+
+
+    "taiwan": {
+        "id": "taiwan",
+        "image": "https://www.revueconflits.com/wp-content/uploads/2019/07/taipei-taiwan-terra-bellum.jpg"
+    },    
+
+    "netherlands_antilles": {
+        "id": "netherlands antilles",
+        "image": "https://68c8648dbe66747498d1-6027f91c84d2b73bebfc9b6bc4f4a0ac.ssl.cf3.rackcdn.com/5a95879221703c05d81c4678/Netherlands-Antilles-mobile.jpg"
+    },    
+
+    "costa_rica": {
+        "id": "costa rica",
+        "image": "https://content.r9cdn.net/rimg/dimg/32/de/d484bd46-city-10800-1656d33a769.jpg?crop=true&width=1366&height=768&xhint=1493&yhint=1009"
+    }
+    
+    }
+    

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CSS/style_concert.css">
+    <link rel="icon" href="./CSS/Spooteezer_logo.png">
+    <title>Spooteezer</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/"><img src="CSS/Spooteezer_logo.png" alt="Logo"></a>
+        </div>
+        <ul>
+            <div class="bouton-nav">
+                <a href="/">Accueil</a>
+                <a href="/Artistes">Artistes</a>
+            </div>
+        </ul>
+        <div class="Logo-Nom">
+            <img src="CSS/Spooteezer.png" alt="Logo" width="250" height="55">
+        </div>
+    </nav>
+    <div class="container">
+        <div class="artist-info">
+            <div class="artist-image">
+                <img src="{{.ArtisteSolo.Image}}" alt="Artiste">
+                <a href="http://localhost:8080/Artiste?id={{.ArtisteSolo.ID}}">
+                    <button class="concert-button">Retour à la Page Artiste</button>
+                </a>
+            </div>
+            <div class="artist-details">
+                <h1>Les Concerts de {{.ArtisteSolo.Name}}</h1>
+                {{range .ConcertsAffiche}}
+                <div class="additional-container">
+                    <img src={{.Link}} alt="Ville">
+                    <div class="text-content">
+                        <h2>{{.Lieu}} </h2>
+                        <ul>
+                            {{range .Date}}
+                            <li>{{.}}</li>
+                            {{end}}
+                        </ul>
+                    </div>
+                </div>
+                {{end}}
+            </div>
+        </div>        
+    </div>
+</body>
+</html>

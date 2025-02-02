@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/CSS/style.css" />
+    <title>Hangman Web</title>
+</head>
+<body class="{{.Back}}">
+    {{if .Replay}}
+    <form method="post" action="/">
+        <div class="retry-text">
+            <div class="lost-text"> 
+                {{.MessageSupp}}{{.FinalWord}} 
+            </div>
+            <div class="retry-ask-text">
+                Would you like to retry ?
+            </div>
+            <button id="retry-button">Try again</button>
+        </div>
+    </form>
+    {{else}}
+    <div class="main">
+        <div class="{{.Border}}">
+            <div class="attempt">
+                You have {{ .NbVies }} attempts left
+            </div>
+            <div class="mot">
+                <h1>{{ .InstanceWord }}</h1>
+            </div>
+            <div class="field-choose">
+                <form action="/Hangman" method="post">
+                    <p class="choose">Choose : {{ .MessageSupp }}</p>
+                    <input type="text" name="input" id="inputBox" placeholder="Suggest a letter/word" class="{{.Input}}"> <br><br>
+                    <input class="submit" type="submit" value={{.MessageButton}}>
+                </form>
+            </div>
+        </div>
+        <div class="floating-text1">
+            <img src="{{ .Hangman }}" alt="Hangman" width="380" height="380">
+        </div>
+        <div class="{{.Border1}}">
+            <p>Already typed letters : </p>
+            <p>{{ .Lettres }}</p>
+        </div>
+    </div>
+    {{end}}
+</body>
+</html>
