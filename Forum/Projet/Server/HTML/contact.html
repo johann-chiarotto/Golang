@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../CSS/contact.css" rel="stylesheet" />
+    <link rel="icon" href="../CSS/assets/FORUMIX.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>Contact</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="https://localhost:8080/HomePage"><img src="../CSS/assets/FORUMIXComplet.png" alt="FORUMIX" class="logo"></a>
+    </nav>
+    
+    <div class="contact-container">
+        <h1>Contact us</h1>
+
+        <p>If you have any questions, suggestions, or need help, send us a message!</p>
+        <br><br>
+
+        <textarea id="message" placeholder="Your message here..."></textarea>
+
+        <form action="">
+            <button type="submit" onclick="clearMessage(event)">Submit</button>
+        </form>
+        <p>  
+    </div>
+    
+    <script>
+        function clearMessage(event) {
+            event.preventDefault();  // Empêche la soumission du formulaire
+            document.getElementById('message').value = ''; // Efface le contenu de la zone de texte
+        }
+    </script>
+    
+    
+       
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../CSS/creation.css" rel="stylesheet" />
+    <link rel="icon" href="../CSS/assets/FORUMIX.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+        <title>FORUMIX</title>
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="https://localhost:8080/HomePage"><img src="../CSS/assets/FORUMIXComplet.png" alt="FORUMIX" class="logo"></a>
+        </nav>
+
+        <div class="post-wrapper">
+            <div class="textr">
+                <h1>Create a post</h1>
+            </div>
+            <form action="https://localhost:8080/Creation" method="POST">
+                <div class="container-category" onclick="toggleDropdown()">
+                    <p id="selected-category">Choose a Category <span class="arrow">▼</span></p>
+                    <ul class="dropdown-menu">
+                        {{range .Categorie}}
+                            <li onclick="selectCategory(this)" data-value="{{.Name}}">{{.Name}}</li>
+                        {{end}}
+                    </ul>
+                </div>
+            
+                <!-- Input caché pour stocker la catégorie sélectionnée -->
+                <input type="hidden" id="category-input" name="categorie_choice">
+                </div>
+
+                <!--<button type="submit">Submit</button> -->
+                <div class="container-textarea">
+                    <form action="https://localhost:8080/Creation" method="POST">
+                        <p class="erreur">{{.MessageErreur}}</p>
+                        <h2>Title</h2>
+                        <div class="titre">
+                            <input type="text" name="Title" placeholder="Type a Title for your post" required>
+                        </div>
+                        <div class="textarea">
+                            <textarea rows="5" cols="95" name="Texte" placeholder="Type your post" required></textarea>
+                    
+                            <div class="button-post">
+                                <a href="https://localhost:8080/HomePage">
+                                    <button type="button" class="cancel-button">Cancel</button>
+                                </a>
+                                <button type="submit" class="post-button">Post</button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </form>
+            <script>
+                function selectCategory(element) {
+                    let selectedText = element.textContent; // Récupère le texte du <li>
+                    let selectedValue = element.getAttribute("data-value"); // Récupère la valeur
+
+                    // Affiche la sélection dans le <p>
+                    document.getElementById("selected-category").innerHTML = selectedText + ' <span class="arrow">▼</span>';
+
+                    // Stocke la valeur dans l'input caché pour l'envoyer au backend
+                    document.getElementById("category-input").value = selectedValue;
+                }
+            </script>
+        
+        </div>
+        <script>
+            function toggleDropdown() {
+                let container = document.querySelector(".container-category");
+                let dropdown = document.querySelector(".dropdown-menu");
+                
+                dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+                
+                container.classList.toggle("open");
+            }
+        </script>
+
+    </body>
+</html>

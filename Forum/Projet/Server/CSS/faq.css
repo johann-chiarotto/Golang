@@ -1,0 +1,119 @@
+ /* Light mode */
+ @media (prefers-color-scheme: light) {
+    body {
+        background-color: rgb(233, 233, 233);
+        color: black;
+    }
+    
+    :root {
+        --search-width: 40%;
+        --search-bg: #dbdbdb;
+        --search-text: #000000;
+        --nav-bg: rgb(233, 233, 233);
+        --nav-border: #555;
+        --sidebar-hover: rgba(185, 185, 185, 0.1);
+        --content-text: rgba(200, 200, 200, 0.5);
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(41, 41, 41);
+        color: white;
+    }
+
+    :root {
+        --search-width: 40%;
+        --search-bg: #454545;
+        --search-text: #ffffff;
+        --nav-bg: rgb(41, 41, 41);
+        --sidebar-hover: rgba(0, 0, 0, 0.1);
+        --content-text: rgba(0, 0, 0, 0.5);
+    }
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", serif;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    padding: 30px;
+    margin: 100px auto;
+    background-color: var(--sidebar-hover);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav-bg);
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    border-bottom: 1px solid var(--search-bg);
+    z-index:99;
+}
+
+.logo {
+    width: 187px;
+    height: 50px;
+}
+.faq-container {
+    width: 50%;
+    background: var(--nav-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 100px auto;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background: var(--search-bg);
+    color: var(--search-text);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.3s;
+}
+
+.faq-question:hover {
+    background: var(--sidebar-hover);
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px;
+    background: var(--content-text);
+    border-radius: 5px;
+    margin-top: 5px;
+    color: var(--search-text);
+}
+
+.faq-answer.active {
+    display: block;
+}

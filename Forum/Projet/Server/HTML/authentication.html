@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../CSS/authentication.css" rel="stylesheet">
+    <link rel="icon" href="../CSS/assets/FORUMIX.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>FORUMIX - Login & Sign Up</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="https://localhost:8080/HomePage"><img src="../CSS/assets/FORUMIXComplet.png" alt="FORUMIX" class="logo"></a>
+    </nav>
+
+    <div class="container">
+        <!-- Connexion -->
+        <div class="auth-box">
+            <h2>Login</h2>
+            <p class="error-message">{{.MessageErreurConnexion}}</p>
+            <form action="/Authentication" method="post">
+                <input type="text" name="inputPseudoConnexion" placeholder="Username" required> 
+                <input type="password" name="inputMdpConnexion" placeholder="Password" required> 
+                <input class="submit-btn" type="submit" value="Connect">
+            </form>
+            <div class="register">
+                
+                <h3><span>No account yet? <a href="https://localhost:8080/Register">Create one</a></h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../CSS/gestion_admin.css" rel="stylesheet" />
+    <link rel="icon" href="../CSS/assets/FORUMIX.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>FORUMIX - Admin Management</title>
+</head>
+<body>
+    {{if .Admin}}
+    <nav class="navbar">
+        <a href="https://localhost:8080/HomePage"><img src="../CSS/assets/FORUMIXComplet.png" alt="FORUMIX" class="logo"></a>
+    </nav>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Admin</th>
+            <th>Delete</th>
+        </tr>
+        {{range .UsersTab}}
+        <tr>
+            <td>{{.Id}}</td>
+            <td>{{.Username}}</td>
+            <td>{{if .Admin}}✅{{else}}❌{{end}}</td>
+
+            <td>
+                <form action="/GestionAdmin" method="post">
+                    <input type="hidden" name="userId" value="{{.Id}}">
+                    <input class="submit-btn" type="submit" value="🗑️">
+                </form>
+            </td>
+        </tr>
+        {{end}}
+    </table>
+    {{else}}
+    <nav class="navbar">
+        <a href="https://localhost:8080/HomePage"><img src="../CSS/assets/FORUMIXComplet.png" alt="FORUMIX" class="logo"></a>
+    </nav>
+
+    <h1> You are not an Admin 😡</h1>
+    {{end}}
+</body>
+</html>

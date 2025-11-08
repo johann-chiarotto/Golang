@@ -1,0 +1,231 @@
+/* Light mode */
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: rgb(233, 233, 233);
+        color: black;
+    }
+    
+    :root {
+        --search-width: 40%;
+        --search-bg: #dbdbdb;
+        --search-text: #000000;
+        --nav-bg: rgb(233, 233, 233);
+        --nav-border: #555;
+        --sidebar-hover: rgba(185, 185, 185, 0.1);
+        --content-text: rgba(200, 200, 200, 0.5);
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(41, 41, 41);
+        color: white;
+    }
+
+    :root {
+        --search-width: 40%;
+        --search-bg: #454545;
+        --search-text: #ffffff;
+        --nav-bg: rgb(41, 41, 41);
+        --sidebar-hover: rgba(0, 0, 0, 0.1);
+        --content-text: rgba(0, 0, 0, 0.5);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", serif;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav-bg);
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    border-bottom: 1px solid var(--search-bg);
+    z-index:99;
+}
+
+.logo {
+    width: 187px;
+    height: 50px;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 15px auto 20px;
+    padding: 20px;
+    background-color: var(--sidebar-hover);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.account-info {
+    text-align: center;
+}
+
+.container:first-of-type {
+    width: 80%;
+    max-width: 800px;
+    margin: 80px auto 20px;
+    padding: 20px;
+    background-color: var(--sidebar-hover);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.pdp2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.pdp2 img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.pdp2 input {
+    display: none;
+}
+
+.edit-btn {
+    display: block;
+    margin-top: 5px;
+    background-color: #3d6287;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background-color: #2482a2;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+}
+
+.password-container button {
+    margin-left: 10px;
+    padding: 5px;
+    background-color: #3d6287;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.password-container button:hover {
+    background-color: #2482a2;
+}
+
+.info p {
+    font-size: 21px;
+    text-align: left;
+}
+
+.logout-btn {
+    margin-top: 20px;
+    background-color: rgb(201, 0, 0);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.gestion-btn {
+    margin-top: 20px;
+    background-color: #3d6287;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.logout-btn:hover {
+    background-color: rgb(241, 6, 6);
+}
+
+.gestion-btn:hover {
+    background-color: #2482a2;
+}
+.container h2 {
+    text-align: left;
+}
+
+.mdp-input input {
+    font-family: "Nunito", serif;
+    width: 95%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+}
+
+.password-btn {
+    margin-top: 20px;
+    background-color: #3d6287;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30%;
+    margin-bottom: 25px;
+}
+
+.password-btn:hover {
+    background-color: #2482a2;
+}
+
+.pdp-btn {
+    margin-top: 20px;
+    background-color: #3d6287;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30%;
+    margin-bottom: 25px;
+}
+
+.pdp-btn:hover {
+    background-color: #2482a2;
+}

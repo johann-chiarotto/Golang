@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <link href="../CSS/subject.css" rel="stylesheet" />
+        <link rel="icon" href="../CSS/assets/FORUMIX.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+        <title>FORUMIX - Admin Management</title>
+    </head>
+    <body>
+        <nav class="navbar">
+            <a href="https://localhost:8080/HomePage"><img src="../CSS/assets/FORUMIXComplet.png" alt="FORUMIX" class="logo"></a>
+            <h2 class="category-nav">{{.CategorieName}}</h2>
+        </nav>
+
+        <nav class="sidebar">
+            <div class="menu-item" onclick="toggleDropdown()">
+                <button class="dropdown-btn">Category <span class="arrow">▼</span></button>
+                    <div class="dropdown-content">
+                        {{range .Categorie}}
+                            <a href="https://localhost:8080/Subject?categorie={{.Name}}">{{.Name}}</a>
+                        {{end}}
+                    </div>
+            </div>
+            <div class="separator1"></div>
+            <div class="menu-item" onclick="toggleDropdown()">
+                <button class="dropdown-btn">Resources <span class="arrow">▼</span></button>
+                <div class="dropdown-content">
+                    <a href="https://localhost:8080/Contact">Nous contacter</a>
+                    <a href="https://localhost:8080/FAQ">FAQ</a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="full-width-section">
+            <p class="espace"> </p>
+            {{range .PostsTab}}
+                <a href="https://localhost:8080/Post?id={{.ID}}">
+                    <div class="full-width-container" data-id="{{.ID}}">
+                        <p>{{.Title}}</p>
+                        <br>
+                        <small>Category : {{.Categorie}} <br> Username : {{.UserName}} <br></small>
+                        <br>
+                        <div class="vote-container" data-id="{{.ID}}" data-like-status="{{.UserLikeStatus}}">
+                            <button class="vote-button upvote">&#9650;</button>
+                            <span class="vote-count">{{.Likes}}</span>
+                            <button class="vote-button downvote">&#9660;</button>
+                        </div>  
+                    </div>
+                </a> 
+                <div class="separator2"></div>
+            {{end}}
+        </div>
+
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Gestion des dropdowns
+            let dropdownButtons = document.querySelectorAll(".dropdown-btn");
+
+            dropdownButtons.forEach(button => {
+                button.addEventListener("click", function (event) {
+                    event.stopPropagation();
+
+                    let dropdownContent = this.nextElementSibling;
+                    let arrow = this.querySelector(".arrow");
+
+                    document.querySelectorAll(".dropdown-content").forEach(content => {
+                        if (content !== dropdownContent) {
+                            content.style.display = "none";
+                            content.previousElementSibling.querySelector(".arrow").classList.remove("rotate");
+                        }
+                    });
+
+                    let isOpen = dropdownContent.style.display === "block";
+                    dropdownContent.style.display = isOpen ? "none" : "block";
+                    arrow.classList.toggle("rotate", !isOpen);
+                });
+            });
+
+            document.addEventListener("click", function (event) {
+                if (!event.target.closest(".menu-item")) {
+                    document.querySelectorAll(".dropdown-content").forEach(content => {
+                        content.style.display = "none";
+                        content.previousElementSibling.querySelector(".arrow").classList.remove("rotate");
+                    });
+                }
+            });
+
+            // Gestion des votes
+            document.querySelectorAll('.vote-container').forEach(container => {
+                const upvoteBtn = container.querySelector('.upvote');
+                const downvoteBtn = container.querySelector('.downvote');
+                const voteCount = container.querySelector('.vote-count');
+                
+                const postId = container.getAttribute('data-id');
+                const status = parseInt(container.getAttribute('data-like-status'));
+
+                // Appliquer la couleur en fonction du statut du vote stocké
+                if (status === 1) {
+                    upvoteBtn.style.color = '#2482a2';
+                } else if (status === -1) {
+                    downvoteBtn.style.color = '#2482a2';
+                }
+
+                upvoteBtn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    handleVote(postId, "like", upvoteBtn, downvoteBtn, voteCount);
+                });
+
+                downvoteBtn.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    handleVote(postId, "dislike", downvoteBtn, upvoteBtn, voteCount);
+                });
+            });
+
+            function handleVote(postId, action, activeBtn, inactiveBtn, voteCount) {
+                if (!postId) {
+                    console.error("Erreur: Impossible de récupérer l'ID du post.");
+                    return;
+                }
+
+                fetch('/like', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `post_id=${postId}&action=${action}`
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(`Réponse du serveur: ${data}`);
+                    voteCount.textContent = data;
+
+                    // Gestion des couleurs en fonction du vote
+                    if (activeBtn.style.color === 'rgb(36, 130, 162)') {
+                        activeBtn.style.color = 'rgba(0, 0, 0, 0.25)'; 
+                    } else {
+                        activeBtn.style.color = '#2482a2';
+                        inactiveBtn.style.color = 'rgba(0, 0, 0, 0.25)';
+                    }
+                })
+                .catch(error => console.error('Erreur:', error));
+            }
+        });
+        </script>
+
+    </body>
+</html>

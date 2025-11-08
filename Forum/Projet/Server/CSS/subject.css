@@ -1,0 +1,426 @@
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  body {
+      background-color: rgb(233, 233, 233);
+      color: black;
+  }
+  
+  :root {
+      --search-width: 40%;
+      --search-bg: #dbdbdb;
+      --search-text: #000000;
+      --nav-bg: rgb(233, 233, 233);
+      --nav-border: #555;
+      --sidebar-hover: rgba(185, 185, 185, 0.1);
+      --content-text: rgba(200, 200, 200, 0.5);
+  }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+      background-color: rgb(41, 41, 41);
+      color: white;
+  }
+
+  :root {
+      --search-width: 40%;
+      --search-bg: #454545;
+      --search-text: #ffffff;
+      --nav-bg: rgb(41, 41, 41);
+      --sidebar-hover: rgba(0, 0, 0, 0.1);
+      --content-text: rgba(0, 0, 0, 0.5);
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", serif;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--nav-bg);
+  padding: 10px 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  border-bottom: 1px solid var(--search-bg);
+  z-index: 99;
+}
+
+.logo {
+  width: 187px;
+  height: 50px;
+}
+
+.full-width-section {
+  margin-left: 220px;
+  padding-top: 20px;
+}
+
+.full-width-section a {
+  text-decoration: none;
+}
+
+.full-width-container {
+  width: calc(100% - 240px);
+  height: auto; 
+  margin: 10px auto;
+  padding: 20px;
+  background: rgb(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: background 0.3s;
+  color: var(--search-text);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.full-width-container:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.separator1 {
+  width: 80%;
+  height: 2px;
+  background-color: var(--search-bg);
+  margin: 10px 0;
+}
+
+.separator2 {
+  width: 70%;
+  height: 2px;
+  background-color: var(--search-bg);
+  margin: 10px auto 10px 180px;
+}
+
+.separator2:last-child {
+  visibility: hidden;
+}
+
+.sidebar {
+  width: 200px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: calc(100vh - 60px);
+  background-color: var(--nav-bg);
+  border-right: 1px solid var(--search-bg);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown-content a:hover {
+  background: var(--sidebar-hover);
+}
+
+.menu-item {
+  width: 80%;
+  padding:10px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu-item.open .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-btn {
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: inherit;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.dropdown-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.arrow {
+  display: inline-block;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+
+.menu-item.open .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  display: none;
+  padding-left: 10px;
+}
+
+
+.dropdown-content a {
+  display: block;
+  padding: 5px 0;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+  background: var(--sidebar-hover);
+}
+
+.category-nav {
+  position: absolute;
+  left: 50%;
+}
+
+.espace {
+  margin-top: 80px;
+}
+
+.vote-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: var(--search-bg);
+  border-radius: 50px; 
+  padding: 5px 10px;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  flex-shrink: 1;
+  overflow: hidden; 
+}
+
+
+.vote-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.25);
+  transition: color 0.2s;
+}
+
+.vote-button:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.vote-button:focus {
+  color: #2482a2;
+}
+
+.vote-count {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* Modifications pour la sidebar - À ajouter à votre fichier subject.css */
+
+/* Sidebar de base (identique à la homepage) */
+.sidebar {
+    width: 200px;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    background-color: var(--nav-bg);
+    border-right: 1px solid var(--search-bg);
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 98; /* Sous la navbar */
+    transition: transform 0.3s ease;
+}
+
+/* Menu déroulant amélioré */
+.dropdown-content {
+    display: none;
+    width: 180px;
+    background-color: var(--nav-bg);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 100;
+}
+
+/* Media Queries pour le responsive */
+
+/* Version tablette */
+@media (max-width: 992px) {
+    .sidebar {
+        width: 180px;
+    }
+    
+    .full-width-section {
+        margin-left: 200px;
+    }
+}
+
+/* Version mobile - Sidebar devient un menu hamburger */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px; /* Réduit la largeur */
+        overflow: hidden;
+        transition: width 0.3s ease;
+    }
+    
+    .sidebar:hover,
+    .sidebar:focus-within {
+        width: 200px; /* Largeur originale au survol */
+    }
+    
+    .menu-item {
+        width: 180px;
+        padding-left: 20px;
+        text-align: left;
+    }
+    
+    .dropdown-btn {
+        justify-content: flex-start;
+        padding-left: 0;
+    }
+    
+    .dropdown-content {
+        position: fixed;
+        left: 60px;
+        margin-top: -40px;
+    }
+    
+    .full-width-section {
+        margin-left: 80px;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 576px) {
+    .sidebar {
+        width: 50px;
+    }
+    
+    .sidebar:hover,
+    .sidebar:focus-within {
+        width: 180px;
+    }
+    
+    .full-width-section {
+        margin-left: 60px;
+    }
+}
+
+/* Modifications pour la sidebar - À ajouter à votre fichier subject.css */
+
+/* Sidebar de base (identique à la homepage) */
+.sidebar {
+  width: 200px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  height: calc(100vh - 60px);
+  background-color: var(--nav-bg);
+  border-right: 1px solid var(--search-bg);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 98; /* Sous la navbar */
+  transition: transform 0.3s ease;
+}
+
+/* Menu déroulant amélioré */
+.dropdown-content {
+  display: none;
+  width: 180px;
+  background-color: var(--nav-bg);
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+/* Media Queries pour le responsive */
+
+/* Version tablette */
+@media (max-width: 992px) {
+  .sidebar {
+      width: 180px;
+  }
+  
+  .full-width-section {
+      margin-left: 200px;
+  }
+}
+
+/* Version mobile - Sidebar devient un menu hamburger */
+@media (max-width: 768px) {
+  .sidebar {
+      width: 60px; /* Réduit la largeur */
+      overflow: hidden;
+      transition: width 0.3s ease;
+  }
+  
+  .sidebar:hover,
+  .sidebar:focus-within {
+      width: 200px; /* Largeur originale au survol */
+  }
+  
+  .menu-item {
+      width: 180px;
+      padding-left: 20px;
+      text-align: left;
+  }
+  
+  .dropdown-btn {
+      justify-content: flex-start;
+      padding-left: 0;
+  }
+  
+  .dropdown-content {
+      position: fixed;
+      left: 60px;
+      margin-top: -40px;
+  }
+  
+  .full-width-section {
+      margin-left: 80px;
+  }
+}
+
+/* Très petits écrans */
+@media (max-width: 576px) {
+  .sidebar {
+      width: 50px;
+  }
+  
+  .sidebar:hover,
+  .sidebar:focus-within {
+      width: 180px;
+  }
+  
+  .full-width-section {
+      margin-left: 60px;
+  }
+}

@@ -1,0 +1,386 @@
+/* Light mode */
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: rgb(233, 233, 233);
+        color: black;
+    }
+    
+    :root {
+        --search-width: 40%;
+        --search-bg: #dbdbdb;
+        --search-text: #000000;
+        --nav-bg: rgb(233, 233, 233);
+        --nav-border: #555;
+        --sidebar-hover: rgba(185, 185, 185, 0.1);
+        --content-text: rgba(200, 200, 200, 0.5);
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(41, 41, 41);
+        color: white;
+    }
+
+    :root {
+        --search-width: 40%;
+        --search-bg: #454545;
+        --search-text: #ffffff;
+        --nav-bg: rgb(41, 41, 41);
+        --sidebar-hover: rgba(0, 0, 0, 0.1);
+        --content-text: rgba(0, 0, 0, 0.5);
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Nunito", serif;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav-bg);
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    border-bottom: 1px solid var(--search-bg);
+    z-index:99;
+}
+
+.logo {
+    width: 187px;
+    height: 50px;
+}
+
+.textr {
+    width: 100%;
+    max-width: 800px;
+    color: var(--search-text);
+    font-size: 15px;
+    margin: 80px auto 20px;
+}
+
+.post-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 30px auto 20px;
+    width: 80%;
+    max-width: 800px;
+}
+
+.container-category {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    padding: 10px;
+    background-color: var(--sidebar-hover);
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    position: relative;
+}
+
+.container-category p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.dropdown-menu {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0;
+    display: none;
+    background-color: var(--nav-bg);
+    border: 1px solid var(--search-bg);
+    border-radius: 8px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+    background-color: var(--search-bg);
+}
+
+.arrow {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.container-category.open .arrow {
+    transform: rotate(180deg);
+}
+
+.textarea {
+    font-size: 20px;
+    color: black;
+    padding: 20px;
+    padding-left: 25px;
+    resize: none;
+    overflow: hidden;
+    border: none;
+    textarea{resize: none !important;}
+}
+
+.container-textarea {
+    width: 100%;
+    max-width: 800px;
+    margin: 15px auto 20px;
+    padding: 20px;
+    background-color: var(--sidebar-hover);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cancel-button {
+    background-color: rgb(201, 0, 0);
+    color: white;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.cancel-button:hover {
+    background-color: rgb(241, 6, 6);
+}
+
+.post-button {
+    background-color: #3d6287;
+    color: white;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.post-button:hover {
+    background-color: #2482a2;
+}
+
+a {
+    text-decoration: none!important;
+}
+
+.button-post {
+    float: right;
+    margin-right: 35px;
+}
+
+.titre input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.erreur {
+    color: red
+}
+
+/* Styles Responsives */
+@media (max-width: 992px) {
+    .post-wrapper {
+        width: 90%;
+    }
+    
+    .container-textarea {
+        padding: 15px;
+    }
+    
+    .textarea textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .button-post {
+        margin-right: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 768px) {
+    .post-wrapper {
+        width: 95%;
+        margin: 70px auto 20px;
+    }
+    
+    .textr {
+        margin: 70px auto 15px;
+        font-size: 1.8rem;
+    }
+    
+    .container-category {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .container-textarea {
+        padding: 10px;
+    }
+    
+    .textarea textarea {
+        cols: 60;
+        font-size: 16px;
+    }
+    
+    .cancel-button, 
+    .post-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ajoutez ces règles à la fin de votre fichier creation.css */
+
+/* Réglages généraux pour les petits écrans */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 8px 15px;
+        height: 55px;
+    }
+    
+    .logo {
+        width: 160px;
+        height: 45px;
+    }
+    
+    .textr {
+        margin: 70px auto 15px;
+    }
+    
+    .post-wrapper {
+        width: 90%;
+        margin-top: 20px;
+    }
+    
+    .container-textarea {
+        padding: 15px;
+    }
+    
+    .textarea textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        cols: 60 !important;
+    }
+    
+    .button-post {
+        margin-right: 0;
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+    
+    .cancel-button, 
+    .post-button {
+        padding: 10px 15px;
+        flex: 1;
+    }
+}
+
+/* Optimisation mobile (téléphones) */
+@media (max-width: 576px) {
+    .navbar {
+        height: 50px;
+    }
+    
+    .logo {
+        width: 140px;
+        height: 38px;
+    }
+    
+    .textr h1 {
+        font-size: 1.5rem;
+    }
+    
+    .container-category {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .dropdown-menu {
+        width: 100%;
+    }
+    
+    .titre input {
+        font-size: 0.95rem;
+    }
+    
+    .textarea textarea {
+        font-size: 0.95rem;
+        min-height: 180px;
+        padding: 12px;
+    }
+    
+    .button-post {
+        flex-direction: row;
+    }
+}
+
+/* Très petits écrans */
+@media (max-width: 400px) {
+    .textr h1 {
+        font-size: 1.3rem;
+    }
+    
+    .container-textarea h2 {
+        font-size: 1.1rem;
+    }
+    
+    .textarea textarea {
+        min-height: 150px;
+        font-size: 0.9rem;
+    }
+    
+    .button-post {
+        flex-direction: column;
+    }
+    
+    .cancel-button,
+    .post-button {
+        width: 100%;
+    }
+}
+
+/* Correction pour le dropdown en mode mobile */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: absolute;
+        z-index: 100;
+        background: var(--nav-bg);
+        border: 1px solid var(--search-bg);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .dropdown-menu li {
+        padding: 10px;
+    }
+}
+
+/* Empêcher le resize du textarea sur mobile */
+@media (max-width: 576px) {
+    .textarea textarea {
+        resize: none !important;
+    }
+}

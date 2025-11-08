@@ -1,0 +1,250 @@
+/* Light mode */
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: rgb(233, 233, 233);
+        color: black;
+    }
+    
+    :root {
+        --search-width: 40%;
+        --search-bg: #dbdbdb;
+        --search-text: #000000;
+        --nav-bg: rgb(233, 233, 233);
+        --nav-border: #555;
+        --sidebar-hover: rgba(185, 185, 185, 0.1);
+        --content-text: rgba(200, 200, 200, 0.5);
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(41, 41, 41);
+        color: white;
+    }
+
+    :root {
+        --search-width: 40%;
+        --search-bg: #454545;
+        --search-text: #ffffff;
+        --nav-bg: rgb(41, 41, 41);
+        --sidebar-hover: rgba(0, 0, 0, 0.1);
+        --content-text: rgba(0, 0, 0, 0.5);
+    }
+}
+
+* {
+    padding: 0;
+    font-family: "Nunito", serif;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    padding: 30px;
+    margin: 100px auto;
+    background-color: var(--sidebar-hover);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgb(255, 255, 255);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--nav-bg);
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    border-bottom: 1px solid var(--search-bg);
+    z-index: 99;
+}
+
+.logo {
+    width: 187px;
+    height: 50px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: var(--sidebar-hover);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 80px auto; /* Décalage pour laisser de l'espace sous la navbar */
+    margin-top: 80px; /* Espace sous la barre de navigation */
+}
+
+.contact-container h1 {
+    font-family: 'Alice', serif;
+    color: var(--search-text);
+    margin-bottom: 20px;
+}
+
+.contact-container p {
+    font-family: 'Nunito', sans-serif;
+    color: var(--content-text);
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+textarea {
+    width: 80%;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid var(--search-bg);
+    border-radius: 5px;
+    resize: none;
+    background-color: var(--search-bg);
+    color: var(--search-text);
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--search-bg);
+    color: var(--search-text);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--sidebar-hover);
+}
+p {
+    color: white;
+}
+
+/* Ajoutez ces règles à la fin de votre fichier contact.css */
+
+/* Version tablette (768px - 992px) */
+@media (max-width: 992px) {
+    .contact-container {
+        width: 90%;
+        max-width: 500px;
+        margin-top: 70px;
+        padding: 15px;
+    }
+    
+    textarea {
+        width: 90%;
+        height: 130px;
+    }
+}
+
+/* Version mobile (576px - 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        height: 50px;
+        padding: 5px 10px;
+    }
+    
+    .logo {
+        width: 150px;
+        height: 40px;
+    }
+    
+    .contact-container {
+        margin-top: 60px;
+        width: 95%;
+        padding: 10px;
+    }
+    
+    .contact-container h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    textarea {
+        width: 95%;
+        height: 120px;
+    }
+    
+    button {
+        padding: 8px 16px;
+    }
+}
+
+/* Très petits écrans (moins de 576px) */
+@media (max-width: 576px) {
+    .logo {
+        width: 130px;
+        height: 35px;
+    }
+    
+    .contact-container {
+        margin-top: 50px;
+        border-radius: 8px;
+    }
+    
+    .contact-container h1 {
+        font-size: 1.3rem;
+    }
+    
+    .contact-container p {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    
+    textarea {
+        height: 100px;
+        font-size: 0.9rem;
+    }
+    
+    button {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Correction pour le dark mode */
+@media (prefers-color-scheme: dark) {
+    .contact-container p {
+        color: var(--search-text);
+    }
+    
+    p {
+        color: var(--search-text);
+    }
+    
+    .contact-container {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Amélioration du textarea */
+textarea {
+    transition: all 0.3s ease;
+    border: 1px solid var(--nav-border);
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #2482a2;
+    box-shadow: 0 0 5px rgba(36, 130, 162, 0.5);
+}
+
+/* Amélioration du bouton */
+button {
+    background-color: #3d6287;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #2482a2;
+    transform: translateY(-2px);
+}

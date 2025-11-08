@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../CSS/faq.css" rel="stylesheet" />
+    <link rel="icon" href="../CSS/assets/FORUMIX.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>FORUMIX - FAQ</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="https://localhost:8080/HomePage"><img src="../CSS/assets/FORUMIXComplet.png" alt="FORUMIX" class="logo"></a>
+    </nav>
+
+
+    <div class="container">
+        <h2>Members :</h2>
+        <li>Baptiste Renou</li> 
+        <li>Adrien Dulou</li>
+        <li>Johann Chiarotto</li> 
+        <li>Ulysse Prevost Lacaze</li>
+    </div>
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        
+        <div class="faq-item">
+            <button class="faq-question">1. How can I sign up for the forum?</button>
+            <div class="faq-answer">To sign up, click the "Sign Up" button at the top right of the homepage, fill out the form with your information (username and password), then confirm and log in.</div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">2. What should I do if I forget my password?</button>
+            <div class="faq-answer">Since there is no password recovery system, please create a new account.</div>
+        </div>
+        
+        <div class="faq-item">
+            <button class="faq-question">3. Why can't I see other users' messages?</button>
+            <div class="faq-answer">Make sure you are logged in. If the problem persists, check if you are in the correct section of the forum.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">4. Can I ask a question without being registered? </button>
+            <div class="faq-answer">No, to ask questions or reply on this forum, you must first create an account. This helps manage discussions better and prevent abuse.</div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">5. How do I post a message?</button>
+            <div class="faq-answer">No, to ask questions or reply on this forum, you must first create an account. This helps manage discussions better and prevent abuse.</div>
+        </div>
+    </div>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", function() {
+            const questions = document.querySelectorAll(".faq-question");
+            
+            questions.forEach(question => {
+                question.addEventListener("click", function() {
+                    const answer = this.nextElementSibling;
+                    answer.classList.toggle("active");
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../CSS/post.css" rel="stylesheet" />
+    <link rel="icon" href="../CSS/assets/FORUMIX.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alice&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <title>FORUMIX - Admin Management</title>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="https://localhost:8080/HomePage"><img src="../CSS/assets/FORUMIXComplet.png" alt="FORUMIX" class="logo"></a>
+    </nav>
+    
+    <div class="container-post">
+        <div class="align">
+            <img src="{{.Pdp_User}}" style="width: 38px;height:38px;">
+            <div class="text-container">
+                <h4>{{.Post.Categorie}}</h4>
+                <h5>{{.Post.UserName}}</h5>
+            </div>
+        </div>
+        {{if .Admin}}
+            <form action="/Post?id={{.Post.ID}}" method="post">
+                <input type="hidden" name="postId" value="{{.Post.ID}}">
+                <input class="submit-btn" type="submit" value="🗑️">
+            </form>
+        {{end}}
+        <br>
+        <h2 class="titre">{{.Post.Title}}</h2>
+        <p class="post">{{.Post.Content}}</p>
+        <br>
+        <div class="vote-container" data-id="{{.Post.ID}}" data-like-status="{{.UserLikeStatus}}">
+            <button class="vote-button upvote">&#9650;</button>
+            <span class="vote-count">{{.Post.Likes}}</span>
+            <button class="vote-button downvote">&#9660;</button>
+        </div>
+    </div>
+
+    <div class="container-reponse">
+        <form action="/Post?id={{.Post.ID}}" method="post">
+            <div class="input-reponse">
+                <input type="text" name="reponse" placeholder="Add a Comment" required>
+                <button type="submit" class="post-button">Post</button>
+            </div>
+        </form>
+    </div>
+
+    {{range .Comments}}
+    <div class="container-comment">
+        {{if $.Admin}}
+        <form action="/Post?id={{$.Post.ID}}" method="post" class="delete-comment-form">
+            <input type="hidden" name="commentId" value="{{.ID}}">
+            <button type="submit" class="delete-comment-btn" title="Supprimer le commentaire">
+                <span class="trash-icon">🗑️</span>
+            </button>
+        </form>
+        {{end}}
+        <div class="align">
+            <img src="{{.UserPDP}}" alt="PDP" style="width: 38px;height:38px;">
+            <div class="text-container">
+                <h5>{{.UserName}}</h5>
+            </div>
+        </div>
+        <p class="comment">{{.Content}}</p>
+    </div>
+    {{end}}
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll('.vote-container').forEach(container => {
+            const upvoteBtn = container.querySelector('.upvote');
+            const downvoteBtn = container.querySelector('.downvote');
+            const voteCount = container.querySelector('.vote-count');
+            
+            const postId = container.getAttribute('data-id');
+            const status = parseInt(container.getAttribute('data-like-status'));
+
+            // Appliquer la couleur en fonction du statut du vote stocké
+            if (status === 1) {
+                upvoteBtn.style.color = '#2482a2';
+            } else if (status === -1) {
+                downvoteBtn.style.color = '#2482a2';
+            }
+
+            upvoteBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                handleVote(postId, "like", upvoteBtn, downvoteBtn, voteCount);
+            });
+
+            downvoteBtn.addEventListener('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                handleVote(postId, "dislike", downvoteBtn, upvoteBtn, voteCount);
+            });
+        });
+
+        function handleVote(postId, action, activeBtn, inactiveBtn, voteCount) {
+            if (!postId) {
+                console.error("Erreur: Impossible de récupérer l'ID du post.");
+                return;
+            }
+
+            fetch('/like', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `post_id=${postId}&action=${action}`
+            })
+            .then(response => response.text())
+            .then(data => {
+                voteCount.textContent = data;
+
+                if (activeBtn.style.color === 'rgb(36, 130, 162)') {
+                    activeBtn.style.color = 'rgba(0, 0, 0, 0.25)'; 
+                } else {
+                    activeBtn.style.color = '#2482a2';
+                    inactiveBtn.style.color = 'rgba(0, 0, 0, 0.25)';
+                }
+            })
+            .catch(error => console.error('Erreur:', error));
+        }
+    });
+    </script>
+</body>
+</html>
